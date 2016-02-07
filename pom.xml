@@ -300,11 +300,14 @@
 	<modules>
 		<module>org.eclipse.paho.client.mqttv3</module>
 		<module>org.eclipse.paho.client.mqttv3.test</module>
+<!--
 		<module>org.eclipse.paho.client.eclipse.feature</module>
 		<module>org.eclipse.paho.client.eclipse.view</module>
 		<module>org.eclipse.paho.client.mqttv3.repository</module>
 		<module>org.eclipse.paho.sample.utility</module>
 		<module>org.eclipse.paho.ui</module>
 		<module>org.eclipse.paho.android.service</module>
+-->
+		<module>org.eclipse.paho.jmeclient/org.eclipse.paho.jmeclient.mqttv3</module>
 	</modules>
 </project>
