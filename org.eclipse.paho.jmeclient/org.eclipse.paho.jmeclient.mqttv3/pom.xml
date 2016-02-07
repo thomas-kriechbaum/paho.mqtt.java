@@ -49,7 +49,7 @@
         <profile>
             <id>partial-dependency</id>
             <activation>
-                <activeByDefault>false</activeByDefault>
+                <activeByDefault>true</activeByDefault>
             </activation>
 
 
