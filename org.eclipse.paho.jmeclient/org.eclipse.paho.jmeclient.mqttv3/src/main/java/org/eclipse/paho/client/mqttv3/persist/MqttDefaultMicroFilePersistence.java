@@ -13,19 +13,18 @@
 package org.eclipse.paho.client.mqttv3.persist;
 
 
+import org.eclipse.paho.client.mqttv3.MqttClientPersistence;
+import org.eclipse.paho.client.mqttv3.MqttPersistable;
+import org.eclipse.paho.client.mqttv3.MqttPersistenceException;
+import org.eclipse.paho.client.mqttv3.internal.MqttPersistentData;
+
+import javax.microedition.io.Connector;
+import javax.microedition.io.file.FileConnection;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.util.Enumeration;
 import java.util.Vector;
-
-import javax.microedition.io.Connector;
-import javax.microedition.io.file.FileConnection;
-
-import org.eclipse.paho.client.mqttv3.MqttClientPersistence;
-import org.eclipse.paho.client.mqttv3.MqttPersistable;
-import org.eclipse.paho.client.mqttv3.MqttPersistenceException;
-import org.eclipse.paho.client.mqttv3.internal.MqttPersistentData;
 
 public class MqttDefaultMicroFilePersistence implements MqttClientPersistence {
 

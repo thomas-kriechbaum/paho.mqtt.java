@@ -12,16 +12,15 @@
  */
 package org.eclipse.paho.client.mqttv3.internal;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-
-import javax.microedition.io.Connector;
-import javax.microedition.io.SocketConnection;
-
 import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.logging.Logger;
 import org.eclipse.paho.client.mqttv3.logging.LoggerFactory;
+
+import javax.microedition.io.Connector;
+import javax.microedition.io.SocketConnection;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 
 
 /**

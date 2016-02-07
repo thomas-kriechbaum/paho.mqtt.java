@@ -16,7 +16,6 @@
 package org.eclipse.paho.client.mqttv3.logging;
 
 import org.eclipse.paho.client.mqttv3.MqttException;
-import org.eclipse.paho.client.mqttv3.logging.Logger;
 import org.eclipse.paho.client.mqttv3.util.PropertyResourceBundle;
 
 /**

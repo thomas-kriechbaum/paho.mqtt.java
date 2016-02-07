@@ -15,10 +15,10 @@
  */
 package org.eclipse.paho.client.mqttv3;
 
+import org.eclipse.paho.client.mqttv3.util.Debug;
+
 import javax.net.SocketFactory;
 import java.util.Properties;
-
-import org.eclipse.paho.client.mqttv3.util.Debug;
 
 /**
  * Holds options that control how the client connects to a server.

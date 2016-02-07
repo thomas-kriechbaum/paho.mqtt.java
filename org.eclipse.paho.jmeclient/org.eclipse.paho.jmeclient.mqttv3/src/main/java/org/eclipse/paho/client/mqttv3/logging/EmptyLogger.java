@@ -12,9 +12,9 @@
  */
 package org.eclipse.paho.client.mqttv3.logging;
 
-import java.util.Hashtable;
-
 import org.eclipse.paho.client.mqttv3.util.PropertyResourceBundle;
+
+import java.util.Hashtable;
 
 /*
  * An implementation of the Logger class which performs no function and is simply used as place holder 

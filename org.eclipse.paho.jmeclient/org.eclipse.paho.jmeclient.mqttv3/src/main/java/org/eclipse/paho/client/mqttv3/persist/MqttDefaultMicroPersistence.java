@@ -12,21 +12,14 @@
  */
 package org.eclipse.paho.client.mqttv3.persist;
 
-import java.util.Enumeration;
-import java.util.Hashtable;
-
-import javax.microedition.rms.InvalidRecordIDException;
-import javax.microedition.rms.RecordEnumeration;
-import javax.microedition.rms.RecordStore;
-import javax.microedition.rms.RecordStoreException;
-import javax.microedition.rms.RecordStoreFullException;
-import javax.microedition.rms.RecordStoreNotFoundException;
-import javax.microedition.rms.RecordStoreNotOpenException;
-
 import org.eclipse.paho.client.mqttv3.MqttClientPersistence;
 import org.eclipse.paho.client.mqttv3.MqttPersistable;
 import org.eclipse.paho.client.mqttv3.MqttPersistenceException;
 import org.eclipse.paho.client.mqttv3.internal.MqttPersistentData;
+
+import javax.microedition.rms.*;
+import java.util.Enumeration;
+import java.util.Hashtable;
 
 
 /**

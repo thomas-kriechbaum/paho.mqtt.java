@@ -12,12 +12,11 @@
  */
 package org.eclipse.paho.client.mqttv3.util;
 
+import org.eclipse.paho.client.mqttv3.MqttException;
+
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Enumeration;
 import java.util.Hashtable;
-
-import org.eclipse.paho.client.mqttv3.MqttException;
 
 
 public class PropertyResourceBundle {

@@ -15,9 +15,9 @@
  */
 package org.eclipse.paho.client.mqttv3.logging;
 
-import java.util.Hashtable;
-
 import org.eclipse.paho.client.mqttv3.util.PropertyResourceBundle;
+
+import java.util.Hashtable;
 
 /**
  * A Logger object is used to send log and trace messages to a platform
