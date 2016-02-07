@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.eclipse.paho</groupId>
+        <artifactId>java-parent</artifactId>
+        <version>1.0.2</version>
+    </parent>
+
+    <artifactId>org.eclipse.paho.jmeclient.mqttv3</artifactId>
+    <packaging>jar</packaging>
+
+    <properties>
+        <javame.lib.dir>${project.basedir}/javame/lib</javame.lib.dir>
+        <client.mqttv3>${project.basedir}/target/client-mqttv3</client.mqttv3>
+    </properties>
+
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <profiles>
+        <profile>
+            <id>full-dependency</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <dependencies>
+                <dependency>
+                    <groupId>org.eclipse.paho</groupId>
+                    <artifactId>org.eclipse.paho.client.mqttv3</artifactId>
+                    <version>1.0.2</version>
+                </dependency>
+            </dependencies>
+        </profile>
+
+        <profile>
+            <id>partial-dependency</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+
+
+            <build>
+                <resources>
+                    <resource>
+                        <directory>${client.mqttv3}/src/main/resources</directory>
+                    </resource>
+                </resources>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>build-helper-maven-plugin</artifactId>
+                        <version>1.10</version>
+                        <executions>
+                            <execution>
+                                <id>add-source</id>
+                                <phase>generate-sources</phase>
+                                <goals>
+                                    <goal>add-source</goal>
+                                </goals>
+                                <configuration>
+                                    <sources>
+                                        <source>${client.mqttv3}/src/main/java</source>
+                                    </sources>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+
+                    <plugin>
+                        <artifactId>maven-antrun-plugin</artifactId>
+                        <version>1.8</version>
+                        <executions>
+                            <execution>
+                                <phase>generate-sources</phase>
+                                <configuration>
+                                    <target>
+                                        <copy overwrite="true" todir="${client.mqttv3}/src/main">
+                                            <fileset dir="${project.basedir}/../../org.eclipse.paho.client.mqttv3/src/main" >
+                                                <exclude name="**/FileLock.java" />
+                                                <exclude name="**/LocalNetworkModule.java" />
+                                                <exclude name="**/MqttNetworkFactory.java" />
+                                                <exclude name="**/ResourceBundleCatalog.java" />
+                                                <exclude name="**/security/*" />
+                                                <exclude name="**/SSLNetworkModule.java" />
+                                                <exclude name="**/TCPNetworkModile.java" />
+                                                <exclude name="**/logging/*" />
+                                                <exclude name="**/MqttConnectOptions.java" />
+                                                <exclude name="**/MqttDefaultFilePersistence.java" />
+                                            </fileset>
+                                        </copy>
+                                    </target>
+                                </configuration>
+                                <goals>
+                                    <goal>run</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+
+            </build>
+
+            <dependencies>
+                <dependency>
+                    <groupId>org.eclipse.paho</groupId>
+                    <artifactId>org.eclipse.paho.client.mqttv3</artifactId>
+                    <version>1.0.2</version>
+                </dependency>
+            </dependencies>
+        </profile>
+
+    </profiles>
+
+
+    <dependencies>
+
+
+        <!-- cldc_1.8.jar -->
+        <dependency>
+            <groupId>javame</groupId>
+            <artifactId>cldc</artifactId>
+            <version>1.8</version>
+            <scope>system</scope>
+            <systemPath>${javame.lib.dir}/cldc_1.8.jar</systemPath>
+        </dependency>
+
+        <!-- jsr75_1.0-fc.jar -->
+        <dependency>
+            <groupId>javame</groupId>
+            <artifactId>jsr75</artifactId>
+            <version>1.0-fc</version>
+            <scope>system</scope>
+            <systemPath>${javame.lib.dir}/jsr75_1.0-fc.jar</systemPath>
+        </dependency>
+
+        <!-- jsr120_1.1.jar -->
+        <dependency>
+            <groupId>javame</groupId>
+            <artifactId>jsr120</artifactId>
+            <version>1.1</version>
+            <scope>system</scope>
+            <systemPath>${javame.lib.dir}/jsr120_1.1.jar</systemPath>
+        </dependency>
+
+        <!-- jsr172_1.0 -->
+        <dependency>
+            <groupId>javame</groupId>
+            <artifactId>jsr172</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${javame.lib.dir}/jsr172_1.0.jar</systemPath>
+        </dependency>
+
+
+        <!-- jsr177_1.0-crypto.jar -->
+        <dependency>
+            <groupId>javame</groupId>
+            <artifactId>jsr177-crypto</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${javame.lib.dir}/jsr177_1.0-crypto.jar</systemPath>
+        </dependency>
+
+        <!-- jsr179_1.0.jar -->
+        <dependency>
+            <groupId>javame</groupId>
+            <artifactId>jsr179</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${javame.lib.dir}/jsr179_1.0.jar</systemPath>
+        </dependency>
+
+        <!-- jsr280_1.0.jar -->
+        <dependency>
+            <groupId>javame</groupId>
+            <artifactId>jsr280</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${javame.lib.dir}/jsr280_1.0.jar</systemPath>
+        </dependency>
+
+        <!-- meep_8.0-io.jar -->
+        <dependency>
+            <groupId>javame</groupId>
+            <artifactId>meep-io</artifactId>
+            <version>8.0</version>
+            <scope>system</scope>
+            <systemPath>${javame.lib.dir}/meep_8.0-io.jar</systemPath>
+        </dependency>
+
+
+        <!-- gcf_1.8.jar -->
+        <dependency>
+            <groupId>javame</groupId>
+            <artifactId>gcf</artifactId>
+            <version>1.8</version>
+            <scope>system</scope>
+            <systemPath>${javame.lib.dir}/gcf_1.8.jar</systemPath>
+        </dependency>
+
+        <!-- meep_8.0-rms.jar -->
+        <dependency>
+            <groupId>javame</groupId>
+            <artifactId>meep-rms</artifactId>
+            <version>8.0</version>
+            <scope>system</scope>
+            <systemPath>/home/thomas/workbench/k64f/sdk/oracle-jme-sdk-8.2/lib/meep_8.0-rms.jar</systemPath>
+        </dependency>
+
+    </dependencies>
+</project>
